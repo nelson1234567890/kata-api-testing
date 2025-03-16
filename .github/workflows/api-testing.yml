@@ -2,10 +2,12 @@ name: api-testing-workflow
 on:
   push:
     branches:
-      - develop
+      - master
+  workflow_dispatch:
+
 jobs:
   api-test:
-    uses: nelson1234567890/pipeline-reusable-kata/.github/workflows/reusable.yml@develop
+    uses: nelson1234567890/pipeline-reusable-kata/.github/workflows/reusable.yml@master
     with:
         java-version: "22"
         command-execute: "mvn clean verify"
