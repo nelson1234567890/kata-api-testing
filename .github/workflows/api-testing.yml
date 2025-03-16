@@ -10,4 +10,4 @@ jobs:
         java-version: "22"
         command-execute: "mvn clean verify"
         command-report: "mvn serenity:aggregate"
-        path-report: "home/runner/work/kata-api-testing/kata-api-testing/target/site/serenity/index.html"
+        path-report: "kata-api-testing/kata-api-testing/target/site/serenity/index.html"
