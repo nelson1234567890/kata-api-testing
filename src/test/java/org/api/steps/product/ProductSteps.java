@@ -1,8 +1,6 @@
 package org.api.steps.product;
 
 import net.serenitybdd.core.Serenity;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
 import org.api.questions.ValidateResponse;
 import org.api.tasks.GetProduct;
 import org.api.tasks.DeleteProduct;
@@ -16,10 +14,8 @@ import org.api.utils.LoggerUtil;
 
 
 public class ProductSteps {
-
     private Actor actor;
-
-    @Given("^(.*) consume la API de (.*)-productos$")
+    @Given("^(.*) relaiza una consulta de producto con el api (.*)-productos$")
     public void initializeClient(String usuario, String api) {
         actor = Actor.named(usuario)
                 .whoCan(CallAnApi.at(Config.getBaseUrl()));
@@ -29,10 +25,10 @@ public class ProductSteps {
     public void requestProduct(int productId) {
         try {
         actor.attemptsTo(GetProduct.withId(productId));
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             Serenity.recordReportData()
                     .withTitle("Error de Conversión")
-                    .andContents("El ID ingresado no es válido: " + productId);
+                    .andContents("Detalles del error: " + e);
             throw e;
         }
     }

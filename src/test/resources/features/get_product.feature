@@ -1,7 +1,7 @@
 Feature: Consumo API de get productos
 
  Scenario Template: Obtener producto con id especificado
-    Given <usuario> consume la API de fakestoreapi get-productos
+    Given <usuario> relaiza una consulta de producto con el api fakestoreapi get-productos
     When solicita el producto con ID <idProduct>
     Then el código de respuesta debe ser 200
     And la respuesta debe contener el título del producto

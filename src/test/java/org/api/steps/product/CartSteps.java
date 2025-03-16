@@ -4,8 +4,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 import org.api.tasks.PostCarts;
 import org.api.questions.ValidateResponse;
@@ -16,7 +14,7 @@ import org.api.utils.LoggerUtil;
 public class CartSteps {
     private Actor actor;
 
-    @Given("^(.*) consume la API de (.*)-carts$")
+    @Given("^(.*) crea un cart al consumir el API tipo post de (.*)-carts$")
     public void initializeClient(String usuario, String api) {
         actor = Actor.named(usuario)
                 .whoCan(CallAnApi.at(Config.getBaseUrl()));

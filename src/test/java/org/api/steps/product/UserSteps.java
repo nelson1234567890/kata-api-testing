@@ -11,11 +11,13 @@ import org.api.tasks.PutUser;
 import org.api.utils.Config;
 import org.api.utils.LoggerUtil;
 
+
+
 public class UserSteps {
 
     private Actor actor;
 
-    @Given("^(.*) consume la API de (.*)-users$")
+    @Given("^(.*) actualiza un cliente usando el API de (.*)-users$")
     public void initializeClient(String usuario, String api) {
         actor = Actor.named(usuario)
                 .whoCan(CallAnApi.at(Config.getBaseUrl()));
@@ -26,10 +28,10 @@ public class UserSteps {
     public void requestUser(int userId) {
         try {
             actor.attemptsTo(PutUser.withId(userId));
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             Serenity.recordReportData()
                     .withTitle("Error de Conversión")
-                    .andContents("El ID ingresado no es válido: " + userId);
+                    .andContents("Detalles del error: " + e);
             throw e;
         }
     }

@@ -1,7 +1,7 @@
 Feature: Consumo API de delete productos
 
   Scenario Template: Eliminar producto con id especificado
-    Given <usuario> consume la API de fakestoreapi delete-productos
+    Given <usuario> relaiza una consulta de producto con el api fakestoreapi delete-productos
     When Elimina el producto con ID <idProduct>
     Then el código de respuesta debe ser 200
 
