@@ -26,14 +26,7 @@ public class UserSteps {
 
     @When("^actualiza un usuario con ID (.*)$")
     public void requestUser(int userId) {
-        try {
             actor.attemptsTo(PutUser.withId(userId));
-        } catch (Exception e) {
-            Serenity.recordReportData()
-                    .withTitle("Error de Conversión")
-                    .andContents("Detalles del error: " + e);
-            throw e;
-        }
     }
 
     @Then("^la respuesta del api es el codigo http (.*)$")

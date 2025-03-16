@@ -9,6 +9,6 @@ Feature: Consumo API de post cart
     Examples:
       | Descripcion                                                             | usuario | userId |
       | cliente hace la creacion del cart con los productos adecuadamente       | nelson  | 3      |
-      | cliente hace la creacion del cart con los productos y falla la creacion | laura   | juan      |
+      | cliente hace la creacion del cart con los productos y falla la creacion | laura   | 29     |
 
 

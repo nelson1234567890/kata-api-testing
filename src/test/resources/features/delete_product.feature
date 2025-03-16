@@ -8,6 +8,6 @@ Feature: Consumo API de delete productos
     Examples:
       | Descripcion                                | usuario | idProduct |
       | cliente 1 hace el correcto consumo del api | nelson  | 3         |
-      | cliente 2 hace consumo incorrecto del api  | laura   | //        |
+      | cliente 2 hace consumo incorrecto del api  | laura   | 6         |
 
 

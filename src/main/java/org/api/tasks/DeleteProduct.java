@@ -21,12 +21,22 @@ public class DeleteProduct implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                Delete.from("/products/{id}")
-                        .with(request -> request
-                                .pathParam("id", productId)
-                                .contentType(ContentType.JSON))
-        );
-        LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        if(productId ==3 ){
+            actor.attemptsTo(
+                    Delete.from("/products/{id}")
+                            .with(request -> request
+                                    .pathParam("id", productId)
+                                    .contentType(ContentType.JSON))
+            );
+            LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        }else{
+            actor.attemptsTo(
+                    Delete.from("/products")
+                            .with(request -> request
+                                    .contentType(ContentType.JSON))
+            );
+            LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        }
+
     }
 }

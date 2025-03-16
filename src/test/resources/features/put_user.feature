@@ -8,5 +8,5 @@ Scenario Template: Actualizar un cliente
   Examples:
     | Descripcion                                         | usuario | userId |
     | cliente hace la cctualizacion de un usuario         | nelson  | 1      |
-    | cliente hace la actualizacion de un usuario y falla | laura   | juannn |
+    | cliente hace la actualizacion de un usuario y falla | laura   | 20     |
 
