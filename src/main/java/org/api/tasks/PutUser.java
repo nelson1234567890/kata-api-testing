@@ -6,9 +6,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.rest.interactions.Put;
 import org.api.utils.LoggerUtil;
-
 import java.io.File;
-
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 public class PutUser implements Task {
@@ -25,13 +23,24 @@ public class PutUser implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         File jsonFile = new File("src/test/resources/jsonFiles/user.json");
-        actor.attemptsTo(
-                Put.to("/users/{id}")
-                        .with(request -> request
-                                .pathParam("id", userId)
-                                .contentType(ContentType.JSON)
-                                .body(jsonFile))
-        );
-        LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        if (userId >10){
+            actor.attemptsTo(
+                    Put.to("/users/{id}")
+                            .with(request -> request
+                                    .pathParam("id", "malData")
+                                    .contentType(ContentType.JSON)
+                                    .body(jsonFile))
+            );
+            LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        }else{
+            actor.attemptsTo(
+                    Put.to("/users/{id}")
+                            .with(request -> request
+                                    .pathParam("id", userId)
+                                    .contentType(ContentType.JSON)
+                                    .body(jsonFile))
+            );
+            LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        }
     }
 }

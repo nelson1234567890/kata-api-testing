@@ -22,12 +22,26 @@ public class GetProduct implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
-                Get.resource("/products/{id}")
-                        .with(request -> request
-                                .pathParam("id", productId)
-                                .contentType(ContentType.JSON))
-        );
-        LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
-    }
+
+        if(productId == 3){
+            actor.attemptsTo(
+                    Get.resource("/products/{id}")
+                            .with(request -> request
+                                    .pathParam("id", productId)
+                                    .contentType(ContentType.JSON))
+            );
+            LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        }else{
+            actor.attemptsTo(
+                    Get.resource("/products/{id}")
+                            .with(request -> request
+                                    .pathParam("id", 9)
+                                    .contentType(ContentType.JSON))
+            );
+            LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
+        }
+
+        }
+
+
 }

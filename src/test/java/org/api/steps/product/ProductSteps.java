@@ -23,26 +23,12 @@ public class ProductSteps {
     }
     @When("^solicita el producto con ID (.*)$")
     public void requestProduct(int productId) {
-        try {
         actor.attemptsTo(GetProduct.withId(productId));
-        } catch (Exception e) {
-            Serenity.recordReportData()
-                    .withTitle("Error de Conversión")
-                    .andContents("Detalles del error: " + e);
-            throw e;
-        }
     }
 
     @When("^Elimina el producto con ID (.*)$")
     public void deleteProduct(int productId) {
-        try {
             actor.attemptsTo(DeleteProduct.withId(productId));
-        } catch (NumberFormatException e) {
-            Serenity.recordReportData()
-                    .withTitle("Error de Conversión")
-                    .andContents("El ID ingresado no es válido: " + productId);
-            throw e;
-        }
     }
 
     @Then("^el código de respuesta debe ser (.*)$")

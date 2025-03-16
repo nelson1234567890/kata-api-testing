@@ -25,15 +25,18 @@ public class PostCarts implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+        File jsonFile = new File("src/test/resources/jsonFiles/cart.json");
+        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            File jsonFile = new File("src/test/resources/jsonFiles/cart.json");
-
-            ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = objectMapper.readTree(jsonFile);
-
             if (jsonNode instanceof ObjectNode) {
                 ObjectNode objectNode = (ObjectNode) jsonNode;
-                objectNode.put("userId", userId);
+                if (userId >10){
+                    objectNode.put("userId", 100);
+                }else{
+                    objectNode.put("userId", userId);
+                }
+
             }
             String jsonBody = objectMapper.writeValueAsString(jsonNode);
             actor.attemptsTo(
@@ -45,7 +48,6 @@ public class PostCarts implements Task {
 
             LoggerUtil.info("Response: " + SerenityRest.lastResponse().asString());
         } catch (Exception e) {
-            e.printStackTrace();
             throw new RuntimeException("Error al procesar el JSON", e);
         }
     }
