@@ -16,7 +16,6 @@ public class ValidateResponse {
     }
     public static void validateProductTitle() {
         String title = SerenityRest.lastResponse().jsonPath().getString("title");
-        //Assert.assertNotNull(title);
         Assert.assertEquals(title, "Mens Cotton Jacket");
     }
 }
