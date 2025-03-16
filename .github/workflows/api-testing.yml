@@ -10,4 +10,4 @@ jobs:
         java-version: "22"
         command-execute: "mvn clean verify"
         command-report: "mvn serenity:aggregate"
-        path-report: "target/site/serenity"
+        path-report: "target/site/serenity/**/*"
