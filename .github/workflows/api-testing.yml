@@ -7,6 +7,5 @@ jobs:
   api-test:
     uses: nelson1234567890/pipeline-reusable-kata/.github/workflows/reusable.yml@develop
     with:
-      repository:
         java-version: "22"
         command-execute: "mvn clean verify"
