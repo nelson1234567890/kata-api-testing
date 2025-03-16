@@ -1,0 +1,14 @@
+{
+  "id": 5,
+  "userId": 20,
+  "products": [
+    {
+      "id": 4,
+      "title": "prodcuto q nelson",
+      "price": 0.1,
+      "description": "este es un producto de nelson",
+      "category": "tecnologia",
+      "image": "http://example.com"
+    }
+  ]
+}
