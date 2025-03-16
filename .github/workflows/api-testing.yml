@@ -8,5 +8,5 @@ jobs:
     uses: nelson1234567890/pipeline-reusable-kata/.github/workflows/reusable.yml@develop
     with:
         java-version: "22"
-        command-install: "mvn clean install"
         command-execute: "mvn clean verify"
+        command-report: "mvn serenity:aggregate"
