@@ -16,3 +16,5 @@ mvn serenity:aggregate
 Esta ejecucion se realiza automaticamente gracias al pipeline integrado en el proyecto, la ejecuion tambien puede desencadenarse manualmente.
 
 Y seguramente si lo notaste, al entrar en los actions veras un error relacionado a la ejecucion del proyecto, pero es normal, ya que dentro de los entregables de la Kata, para el proyecto de apis se solicita el consumo diferente a exitoso de las apis.
+
+Y finalmente puedes descargar el artefacto con el reporte generado al consumir las apis, este se llama index.html
